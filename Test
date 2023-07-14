@@ -1,0 +1,154 @@
+   static let tokenKey = "session_token"
+
+   var token : String?  {
+        UserDefaults.standard.value(forKey: Session.tokenKey) as? String
+    }
+
+
+   func saveToken(_ token: String?) {
+        let userDF = UserDefaults.standard
+        if token != nil {
+            userDF.setValue(token, forKey: Session.tokenKey)
+        } else {
+            userDF.removeObject(forKey: Session.tokenKey)
+        }
+        userDF.synchronize()
+  }
+
+
+ static let user = "user"
+ var user : User?  {
+        let userd = UserDefaults.standard
+        if let data = userd.data(forKey: Session.user) {
+            let decoder = JSONDecoder()
+            let user = try? decoder.decode(User.self, from: data)
+            return user
+        }
+        return nil
+    }
+
+ func saveUser(_ user: User?) {
+        let saveUserData: ((Data?) -> Void) = { data in
+            let userDF = UserDefaults.standard
+            if data != nil {
+                userDF.setValue(data, forKey: Session.user)
+            } else {
+                userDF.removeObject(forKey: Session.user)
+            }
+            userDF.synchronize()
+        }
+        guard let user = user else {
+            saveUserData(nil)
+            return
+        }
+        
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(user)
+            saveUserData(data)
+        }catch {
+            print(error)
+        }
+    }
+
+//sqlite and core data ...
+you can create data model
+and select editor and create nsmanagedObjectContextsublass
+
+app  delegate core data code
+lazy var persistentContainer: NSPersistentContainer = {
+           let container = NSPersistentContainer(name: "DatabaseModel")
+           container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+               if let error = error as NSError? {
+                   fatalError("Unresolved error \(error), \(error.userInfo)")
+               }
+           })
+           return container
+       }()
+    func saveContext () {
+           let context = persistentContainer.viewContext
+           if context.hasChanges {
+               do {
+                   try context.save()
+               } catch {
+                   let nserror = error as NSError
+                   fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+               }
+           }
+       }
+//final AppDelegate Code
+
+import CoreData
+import UIKit
+import StoreKit
+
+class DataManager{
+    
+    static let shared = DataManager()
+    let moc = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+  
+    
+    func saveImages(pictire: AstronomyPicture){
+        let pic = getImages()
+        let url = pictire.hdurl
+        var urls = pic.map{ $0.url!}
+        guard !urls.contains(url) else{
+            return
+        }
+        let entity = NSEntityDescription.insertNewObject(forEntityName: "AstronomyPictureModel", into: moc!) as? AstronomyPictureModel
+        entity?.title = pictire.title
+        entity?.url = pictire.hdurl
+        entity?.explanation = pictire.explanation
+        saveMOC()
+    }
+    
+    func getImages() -> [AstronomyPictureModel]{
+        var pics = [AstronomyPictureModel]()
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "AstronomyPictureModel")
+        do{
+            pics = try (moc?.fetch(fetchRequest) as? [AstronomyPictureModel])!
+        }catch{
+            print("can not get data")
+        }
+        return pics
+    }
+    
+    func deleteImages(index: URL) {
+        let pic = getImages()
+        var urls = pic.map{ $0.url!}
+        guard urls.contains(index) else{
+            return
+        }
+        pic.forEach { img in
+            if img.url == index{
+                moc?.delete(img)
+                saveMOC()
+            }
+        }
+    }
+    
+    func deleteAllImage(){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "AstronomyPictureModel")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try moc?.execute(batchDeleteRequest)
+        } catch let error as NSError {
+            print("Failed to clear Core Data: \(error), \(error.userInfo)")
+        }
+
+    }
+    
+    func saveMOC(){
+        do {
+            try moc?.save()
+            print("Image saved successfully.")
+        } catch {
+            print("Failed to save image: \(error)")
+        }
+    }
+}
+
+
+
+
+
