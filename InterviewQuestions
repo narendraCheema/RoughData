@@ -1,1 +1,1261 @@
+Weak self … weak variable
+
+Weak variable and weak self that is used to where you want to avoid creating a strong reference cycle. the weak variable will automatically  set to nil. And that is a class protocol bounded
+
+
+Strong variable in swift
+
+a strong variable is the default reference type, and strong reference keeps a strong reference on an object. That is a default inbuilt data in struct
+
+Unowned Variable in swift
+an unowned variable is a type of weak reference that does not hold a strong reference to the instance,  an unowned reference assumes that the referenced instance will always be available
+
+//
+Classes: Classes are reference types that allow you to define complex data structures. They support inheritance, enabling you to create class hierarchies. Objects created from classes are passed by reference, meaning that multiple variables can refer to the same object instance.
+Structures: Structures, also known as structs, are value types. They are used to create more lightweight objects and are typically copied when assigned or passed around. Unlike classes, structures do not support inheritance.
+Enumerations: Enumerations, or enums, are value types used to define a group of related values. Each case of an enumeration can have associated values. Enums can also have methods and computed properties.
+Closures are self-contained blocks of functionality that can be passed around and used in your code. And this is a reference type
+
+
+App Life cycle
+The iOS app lifecycle refers to the sequence of events and states…
+Not Running: The app is not running or has been terminated by the user or the system.
+Launching: The app is being launched, 
+In Foreground:
+Inactive: The app is active but not receiving events, 
+Active: The app is in active,  and receiving the events
+
+4 Background:
+Background: The app enters the background when the user switches to another app 
+Suspended: The app is still in the background but is no longer executing code. 
+5 Terminating: The app is about to be terminated by the user or the system. 
+Methods UIApplicationDelegate…
+application(_:didFinishLaunchingWithOptions:): Called when the app finishes launching.
+applicationWillResignActive(_:): Called when the app is about to become inactive.
+applicationDidEnterBackground(_:): Called when the app enters the background.
+applicationWillEnterForeground(_:): Called when the app is about to enter the foreground.
+applicationDidBecomeActive(_:): Called when the app becomes active.
+applicationWillTerminate(_:): Called when the app is about to terminate.
+
+Mutating keyword.
+In Swift, the mutating keyword is used to indicate that a method or function can modify the properties of a value type, such as a structure or an enumeration.
+
+Defer statement
+In Swift, the defer statement is used to define a block of code that is executed just before the current scope is exited
+
+
+CoreData 
+Core Data is a framework provided by Apple that allows developers to manage the model in application. It provides an object-oriented approach to interact with a persistent store, such as a SQLite database, like save permanent data in locally use Application.
+1> Core Data Model: that is used to create entities and attributes and relationships etc
+2> Managed Object Context: that is used to interact persistent store for  create and updating and deleting data in core data managed object.
+3> You can use NSEntityDescription to create instances of entities defined in your Core Data model and new insert entities.
+4> NSFetchRequest that is used to fetch object , as well as any predicates, and o filter and sort the results.
+What is the difference between a managed object context and a managed object model?
+Moc that is used to creating, updating deleting data in sqlite persistence store.
+Mom is a overall structure of core data model or schema
+5> persistence store coredinator —The persistent store coordinator is responsible for managing the persistent store,
+6> ConcurrencyType: NSMainQueueConcurrencyType… It is used to create a managed object context that operates on the main queue
+7> NSPrivateQueueConcurrencyType : It is used to create a private queue-based managed object context. Private queue  are suitable for performing background tasks or operations
+8> Fetch requests are primarily used to fetch objects from the persistent store based on
+9> Core Data Stack = it is a nspersistanceContainer it contains three Layer 
+1.Managed Object Model (MOM)
+2.Persistent Store Coordinator (PSC)
+3.Managed Object Context (MOC):
+Push Notifications iOS
+
+To implement push notifications in an iOS app, you need to follow more steps:
+1> Enable push notifications in your App ID: In the Apple Developer Portal
+2> we will create Authentication key and apple push Notifications certificates that is used established secure connection between your app and apns  server
+3> enable push notifications capabilities in your project
+4> Create a new Firebase project or use an existing and create app in use your app bundle id and download plist file integrate in your project
+5> after that we will finished app setting like we will attach apple developer account team id and Authentication file and keyid  and 
+
+And after that APNS Working
+App will send fcm token to server
+And server will send notifications with fcm token to apns server
+ And then apns server will send notification to app
+
+There are following methods use in push Notifications
+didReceiveRemoteNotification—
+method to handle incoming remote notifications.  
+didReceiveRegistrationToken:
+That is used to get fcm token and device token
+willPresent notification:
+That  is used to get  push notifications data when your app is in the foreground
+didReceive notification: that is used to get data when notification is tapped
+handleNotificationPayloadOnLaunch: 
+This method is used to handle notification payload if user launch app from backgroud  
+
+
+// MVC is a design pattern that consists three components model- view- controller
+
+// the model is basically data
+// the view is simply user interface ui whatever you the see on the screen
+// controller that is used to connect each other view and model
+
+ 
+
+generics defination = that is used reusablity function that can be used any type in swift
+
+
+Core Location framework provide by apple that is used to get location data. Such as device current location, change location and Reverse Geocoding
+1> get device's current location you will need to create instance allocation manager and check permissions requestwheninuseauthorization
+And there allocation delegates method
+Didupdatelocation: that is used to handle updated last long
+Didfailwitherror: that is used to handle error
+And after that provide kay infoplist NSLocationWhenInUseUsageDescription that required for check location permissions
+2>background mode by capabilities
+…what is background fetch in background mode
+background fetch that is used to allows your app to periodically fetch new data and update content in the background
+3> what is background processing in background mode
+Background processing that is used to  allows your app to continue executing tasks in the background,
+4> what is location update in background mode
+Location update that is used to allows an app to continue receiving location data even when the app is not in the foreground
+5> remote notifications that is used to allows an app to receive notifications from a remote server, even when the app is not in the foreground 
+
+//What do you mean by property in iOS?
+//What are different types of iOS Application States?
+
+
+///Deep linking in ios that used to directing users to move specific location within a mobile app by using custom URL Schemes:, Universal Links:
+
+Grand Central Dispatch (GCD) is a low-level API provided by Apple for managing concurrent and asynchronous tasks in iOS and macOS application.by managing threads in the background
+
+
+automatic reference counting (ARC) is used to manage apps' memory usage. It initializes and deinitializes system resources,ARC keeps track of how many properties, constants, and variables currently refer to each class instance.
+
+
+Cocoa	Cocoa Touch
+It is an application framework for building applications that run on Mac OS X.	It is the application framework for building applications that run on devices like iPhones and iPad.
+Cocoa frameworks includes such as Foundation and AppKit 	Cocoa Touch frameworks includesFoundation and UIKit
+
+Enumeration is a user-defined data type that allows you to define a group of related values. Each value within an enumeration is called a case
+
+he Memento pattern is a behavioral design pattern that allows you to capture and restore the internal state of an object without violating encapsulation.
+
+Memento pattern is a behavioral design pattern that allows you to capture and restore the internal state of an object without violating encapsulation.  It is useful in scenarios where you need to save and restore the state of an object, such as undo/redo functionality
+
+
+iOS supports SBJson framework.
+SBJson is a JSON parser and generator for Objective-C.
+It provides flexible APIs and additional control, making JSON handling easier
+
+
+SBJson is a data interchange formatter that's easy to read and write. It's one kind of JSON. This framework is supported by IOS. Where as JSON means JavaScript Object Notation.It is syntax for storing and exchanging information or data
+
+
+Which is the application thread from where UIKit classes should be used? 
+UIKit classes should be used only from an application’s main thread.
+
+
+When would you say that an app is not in a running state?
+An app is said to be in ‘not running’ state in the following cases:
+– When it is not launched.
+– When it gets terminated by the system during running.
+
+
+Outline the class hierarchy for a UIButton until NSObject.
+UIButton inherits from UIControl, UIControl inherits from UIView, UIView inherits from UIResponder, UIResponder inherits from the root class NSObject.
+
+
+Explain Compilation Conditions
+Compilation Conditions to use if DEBUG … endif structure to include or disable given block of code vs separate targets.
+
+To dismiss multiple view controllers and navigate back to a specific view controller in a Swift app, you can make use of the popToViewController(_:animated:) method provided by the navigation controller.
+
+
+The main components of an iOS app include:
+App Delegate: The AppDelegate class is the entry point and handles crucial app-level events and lifecycle callbacks
+View Controllers: View controllers are responsible for managing the user interface and interaction logic.
+Views: Views are the visual elements that make up the user interface of an app. They can be buttons, labels, text fields, images, or custom UI components
+Storyboards or Interface Builder: Storyboards or Interface Builder is a visual tool in Xcode that allows developers to design app interfaces using a drag-and-drop approach.
+Model: The model represents the underlying data and business logic of the app. It encapsulates data structures, algorithms
+Views and Controls: These are UI elements that the user interacts with, such as buttons, labels, text fields, sliders, and switches.
+Networking: iOS apps often communicate with web services or APIs to fetch data or perform actions. Network components,
+Persistence store: That is used to save data locally in your iOS app like sqlite database.
+
+What are the different types of storage options available in iOS?
+UserDefaults: UserDefaults provides a simple way to store small amounts of data, such as user preferences, settings
+Keychain: The Keychain Services API allows you to securely store sensitive data such as passwords, authentication tokens
+Core Data
+iCloud: iCloud is Apple's cloud storage and synchronization service that enables data synchronization across multiple devices.
+
+What’s the difference between the frame and the bounds?
+The bounds of a UIView is the rectangle, expressed as a location (x,y) and size (width, height) relative to its own coordinate system (0,0).
+The frame of a UIView is the rectangle, expressed as a location (x,y) and size (width, height) relative to the superview it is contained within.
+
+
+Singleton is a design pattern that only one instance of the class exists throughout the application
+
+JSONSerialization class provides functionality for converting between JSON data and Foundation objects
+
+What is Observer Pattern?
+In the Observer pattern, one object notifies other objects of any state changes
+
+
+MVVM (Model-View-ViewModel) is a popular design pattern used in iOS development. It provides a structured approach to separating the user interface
+
+//MVVM is a design pattern that consists three components model-viewModel-view
+
+// view is a whatever display on the screen,
+// model is consist basically data
+// viewModel that is used to interact  model and view and that is used to write business logics
+// view can talk to the viewModel, and viewModel can talk to view but view cannot talk to model,
+// viewModel can talk model, and model can talk to viewModel
+
+
+KVC and KVO are both concepts related to Cocoa and Cocoa Touch frameworks used in Apple's macOS and iOS development. They stand for Key-Value Coding (KVC) and Key-Value Observing (KVO),
+Key-Value Coding (KVC):
+KVC is a mechanism that allows you to access the properties of an object indirectly using keys or key paths. Instead of directly accessing properties
+Key-Value Observing (KVO):
+KVO is a mechanism that allows objects to observe changes in the properties of another object. With KVO, you can register an object to receive notifications when a specific property of another object changes
+
+Swift is the fastest-growing programming language today, created by Apple. With a comparison objective c aSwift implements all the features of other modern languages, you can find type inference, optional, generics, and such higher-order functions. It is compatible with macOS, iOS, watchOS, and tvOS. 
+
+//
+higher-order functions are functions that can accept other functions as parameters and/or return functions as their results
+
+//
+
+Optional A type that represents either a wrapped value or the absence of a value.
+to declare an optional, you append a question mark (?) When a value is absent, the optional is set to nil.
+
+
+There are several ways to unwrap an optional
+
+Optional binding->  You can use optional binding with if let or guard let statements
+Forced Unwrapping: You can use the force unwrap with exclamation mark operator (!) to forcefully unwrap if value is exists that is correctly your code run or you are facing run time error
+
+
+Lazy properties are properties whose initial value isn't computed until the first time they are used.
+Including the lazy modifier/keyword before the declaration of a stored property indicates it is lazy
+
+
+In Swift, reference type instances share a single copy of their data, so that every new instance will point to the same address in memory. A typical example is a class , function , or closure
+
+
+Value types in Swift. The basic types in the Swift programming language are value types, and they include arrays, Booleans, dictionaries, floating-point numbers, integers, and strings.Every instance of a value type has unique data that users may access and modify directly. This data is its value
+
+AVFoundation
+Work with audiovisual assets, control device cameras, process audio, and configure system audio interactions.
+
+Swift 4 also introduces Tuples type, which are used to group multiple values in a single compound Value. The values in a tuple can be of any type, and do not need to be of same type
+
+ What are the most important features of swift?
+Answer: Some important features of swift are given below:
+* More impressive structs and enums
+* Protocol oriented
+* Optional Types
+* Type Safety 
+* Not required to use semicolons
+* Safe by default
+* Less code, fewer files
+* Forced Unwrapping
+* Tuples
+* Closures
+* Much faster when compared to other languages.
+
+
+
+PLIST stands for Property List. PLIST is basically a dictionary of value and keys that can be stored in our file system with a .plist file extension. The property list is used as a portable and lightweight means to store a lesser amount of data. They are normally written in XML.
+
+
+Define Access control ?
+More public private file private 
+
+Final keyword
+When you declare a class as final, it means that it cannot be inherited by another class
+
+typealias in swift
+In Swift, typealias is used to define an alternative name for an existing type. It allows you to create a custom name that can be used interchangeably with the original type.
+
+
+ Type safety & Type Inference ?
+Swift is a type-safe language agar app kisi variable ka type define card ga to usko koi or type ki value doge to vo asign nahi hogi 
+
+Type Inference: If you don’t specify the type of value you need, Swift uses type inference to work out the appropriate type
+var meaningOfLife = 42 // meaningOfLife is inferred to be of type Int
+meaningOfLife = 55 // it Works, because 55 is an Int
+
+
+Dependency injection is a design pattern achieved by designing your code in a way that your objects or functions receive objects that they depend on, instead of creating their own.
+
+
+atomic means only one thread access the variable (static type)
+nonatomic means multiple thread access the variable (dynamic type).
+
+Access control 
+
+Open: hum waha use karte hai jaha apne module and another imported model and inherit subclass me access Hota hai
+Public Hume hume pana module and outside module me access Hota hai but sub classes me access nahi Hota hai
+Internal it is a default access level and no defining module access our module not access another module
+File Private: that is access one source file that is same file
+Private that is used to access separately  class struct and extension  within same file
+
+Final keyword
+final, it means that its implementation is complete and cannot be modified or extended by any subclass.
+
+class BaseClass {
+    final func myMethod() {
+        // Method implementation
+    }
+}
+
+
+class TestOpen: BaseClass{
+// not access my method because this method marked final
+}
+
+
+
+Escaping closure: A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns.
+non-escaping closure Pass a closure into a function -> The function runs the closure (or not) -> The function returns
+
+
+Map method that is used to mapping and transforming data in swift
+Flat map that is used to remove nil and optional in array and remove extra array inside array swift
+filter to loop over a collection and return an Array containing only those elements that match an include condition.
+Use reduce to combine all items in a collection to create a single new value.
+
+
+
+Value type… that are many type struct enum string int double, value type ko app copy Kar sakte ho kiss dosra variable me assign kar sakte  ho
+
+
+Reference types are not copied when assigned to a new variable or passed as a function argument. Instead, they create a reference to the existing instance in memory. Class and closure 
+
+
+Optional chainning
+Optional chaining is a process for querying and calling properties, methods, and subscripts on an optional that might currently be nil. If the optional contains a value, then the property, method, or subscript call succeeds; and if the optional is nil, then it returns nil.
+
+
+"Any" keyword represents a type that can represent values of any type, including instances of classes, structures, enumerations, and functions. It is a dynamic type that can hold values of any type at runtime. It is similar to the "Object" type in languages like Java.
+
+var anyValue: Any = 5
+anyValue = "Hello"
+anyValue = [1, 2, 3]
+
+
+associated types are a powerful feature of protocols that allow you to define a placeholder type within a protocol.
+protocol Container {
+    associatedtype Item
+    mutating func addItem(_ item: Item)
+    func getItem() -> Item
+}
+
+struct MyContainer<T>: Container {
+    typealias Item = T
+    private var items: [Item] = []
+
+    mutating func addItem(_ item: Item) {
+        items.append(item)
+    }
+
+    func getItem() -> Item {
+        return items.last!
+    }
+}
+
+var container = MyContainer<Int>()
+container.addItem(5)
+let item = container.getItem()
+print(item) // Output: 5
+
+ "Result" type
+It is used to represent the result of an operation that can either succeed with a value or fail with an error.
+
+enum NetworkError: Error {
+    case badURL
+}
+
+func fetchUnreadCount1(from urlString: String, completionHandler: @escaping (Result<Int, NetworkError>) -> Void)  {
+    guard let url = URL(string: urlString) else {
+        completionHandler(.failure(.badURL))
+        return
+    }
+
+    // complicated networking code here 
+    print("Fetching \(url.absoluteString)...")
+    completionHandler(.success(5))
+}
+
+
+
+//Array 
+Array is a data type that is used to hold value same data type it hold ordered element and it hold duplicate value and it is a mutable and immutable
+Var array = [String]()
+//Set
+Set is a collection type it hold value same type and unique value and unordered collection
+Var emptySet = Set<Int>()
+Var numberOfSet = Set<Int> = [1,2,3]
+
+KeyDecodingStrategy in Codable it is a enum that is used to that key should be decoded from the swift type there are several cases useDefaultKey, it is a exactly same decode
+convertFromSnakeCase it is commonly working with api name like user_id that userId
+convertFromCapitalized
+Custom it provide codeing keys in swift
+
+Struct Person: Coddle{
+Var firstName: String
+
+Enum CodingKeys: String, CodingKey{
+Case firstName = ”first_name”
+}
+}
+
+
+
+//One side range in swift
+
+One side range that is used to define partial bound there two type of partial range define
+Partial range from that is used to define …
+Let array  = [1,2,3,4,5]
+Let partalrange = 2…
+For I in array[parial range] {
+Print (i)
+}
+Output 345
+
+Partial range through that I used to ..<
+Let array  = [1,2,3,4,5]
+Let partalrange = ..<4
+For I in array[parial range] {
+Print (i)
+}
+ Output 123
+
+
+Protocol extension in swift
+Protocol extension you to allow add default implementation computed property and additional functionality to existing protocol.
+Is called protocol extension
+
+protocol LoaderProtocol{
+    func showHud()
+    func hideHud()
+}
+
+extension LoaderProtocol{
+    func showHud(){
+        Utils.shared.showHud()
+    }
+    
+    func hideHud(){
+        Utils.shared.hideHud()
+    }
+}
+
+class HomeViewController: UIViewController, LoaderProtocol {
+showHud()
+//api call
+hideHud()
+}
+
+
+
+protocol Vehicle{
+    var numberOfTyre: Int { get }
+    func startEngine()
+}
+
+extension Vehicle{
+    func startEngine() {
+        print("Engine Start")
+    }
+}
+
+
+struct Car: Vehicle{
+    var numberOfTyre: Int = 33
+}
+
+let car = Car()
+car.startEngine()
+print(car.numberOfTyre)
+
+
+Switch case pattern in swift you can match case multiple conditions like … by using where etc
+let someValue = 5
+
+switch someValue {
+case 0:
+    print("Value is zero")
+case 1...5:
+    print("Value is between 1 and 5")
+case let x where x % 2 == 0:
+    print("Value is an even number: \(x)")
+case let x where x % 2 != 0:
+    print("Value is an odd number: \(x)")
+default:
+    print("Value is something else")
+}
+
+//Where keyword in swift
+where keyword is used to add constraints or conditions to generic type parameters, associated types, and protocol extensions. Here are the primary use cases for the where keyword in Swift:
+		
+func process<T>(item: T) where T: Equatable {
+    // Code that works with equatable items
+}
+
+  protocol Container {
+    associatedtype Item
+    func addItem(_ item: Item) where Item: Equatable
+}
+
+
+extension Collection where Element: Equatable {
+    func contains(element: Element) -> Bool {
+        return self.contains(element)
+    }
+}
+
+
+Some protocol in swift
+Some protocol hum use karte hai generic type ki jagah like haha Hume return type par generic constraints Lana ho
+And any protocol hum waha use karte hai array of t return type me use karte hai
+
+//
+AnyObject: Represents an instance of any class type.
+
+//
+Tuple: Allows you to group multiple values into a single compound value.
+
+Error Handling
+You can use the do-catch statement to catch and handle errors. Code that can potentially throw an error is enclosed within a do block, and error handling code is written in one or more catch blocks.
+
+What are the different ways to handle concurrency in Swift?
+Gcd and async await in swift handle the concurrent task
+
+
+//
+func isPalindrome(_ str: String) -> Bool {
+    let strippedString = str.lowercased().filter { $0.isLetter }
+    return strippedString == String(strippedString.reversed())
+}
+
+let isPalindromeString = isPalindrome("a")
+print(isPalindromeString)
+// palindrom means string reverse me bhi same honi chahiya
+
+
+
+func removeDuplicates(from array: [Int]) -> [Int] {
+    var result = [Int]()
+    for num in array {
+        if !result.contains(num) {
+            result.append(num)
+        }
+    }
+    return result
+}
+
+let numbersWithDuplicates = [1, 2, 3, 2, 4, 1, 5]
+let uniqueNumbers = removeDuplicates(from: numbersWithDuplicates)
+print(uniqueNumbers) // Output: [1, 2, 3, 4, 5]
+
+//
+// anagram string wo string hoti hai zinka sorted value equal to same ho
+func areAnagrams(_ str1: String, _ str2: String) -> Bool {
+    let sortedStr1 = str1.lowercased().sorted()
+    let sortedStr2 = str2.lowercased().sorted()
+    return sortedStr1 == sortedStr2
+}
+
+let isAnagram = areAnagrams("risalat", "risalat")
+print(isAnagram) // Output: true
+
+let str1 = "listen"
+let sortedStr1 = str1.lowercased().sorted()
+print(sortedStr1)
+
+//
+func findSecondHighestNumber(in numbers: [Int]) -> Int? {
+    guard numbers.count >= 2 else { return nil }
+    let sortedNumbers = numbers.sorted()
+    print(sortedNumbers)
+    return sortedNumbers[sortedNumbers.count - 2]
+}
+
+let numbers = [4, 5, 7, 4, 5, 3]
+if let secondHighest = findSecondHighestNumber(in: numbers) {
+    print(secondHighest) // Output: 5
+}
+
+//
+func countOccurrences(in array: [Int]) -> [Int: Int] {
+    var counts = [Int: Int]()
+    for element in array {
+        counts[element, default: 0] += 1
+    }
+    return counts
+}
+
+let numbers = [1, 2, 3, 2, 4, 1, 5]
+let occurrenceCounts = countOccurrences(in: numbers)
+print(occurrenceCounts) // Output: [1: 2, 2: 2, 3: 1, 4: 1, 5: 1]
+
+
+
+//
+
+find the Ways to count number of substring in a given string in swift
+func countSubstring(_ string: String, target: String) -> Int {
+    let substrings = string.components(separatedBy: target)
+    return substrings.count - 1
+}
+
+
+let string = "ababrisalat"
+let target = "b"
+
+let count = countSubstring(string, target: target)
+print("Number of occurrences of '\(target)' in '\(string)': \(count)")  // Output: Number of occurrences of 'ab' in 'ababababab': 5
+
+
+//
+while loop that is used to execute code repeatedly while the condition will not true
+var count = 5
+
+while count > 3 {
+    print(count)
+    count -= 1
+}
+
+//
+Do while loop that is used to execute code at least once without check condition
+And after that check execute code repeatedly while condition is true
+
+var count = 5
+
+repeat {
+    print(count)
+    count -= 1
+} while count > 2
+
+
+//new list
+Mvvm advantages separation of concern, testability, disadvantage it is more improve more file like separate networking call
+Delegate it is a sharing disadvantage not disalocate
+
+//
+
+//
+Uikit is imperative framework that means you will handle all event manually
+Swiftui is declarative framework that is used to build user interface app 
+
+//
+Deference 
+Scenedelegate take over some of the role from app delegate with iOS 13
+The concept of a window is replaced by that of a scene
+//
+@State variables are owned by the view(struct). @State property wrapper allows us to modify values inside a struct
+//
+
+What is the @Binding property wrapper?
+State properties must always relate to a specific View. But sometimes we want to have access to a State property from the outside, for example from child views. For creating such a reference, we use the @Binding property wrapper.
+//
+
+What’s the difference between @State, @ObservedObject, and @EnvironmentObject?
+A.
+- We use @State for simple properties that belong to a single view. They should usually be marked as private.
+- We use @ObservedObject for complex properties that might belong to several views(class). Any time we’re using a reference(class) type we should use @ObservedObject for it.
+- We use @EnvironmentObject for properties that were created elsewhere in the app, such as shared data.
+
+//
+
+What is UIStackView?
+Unstuck that is used to arrange view by horizontal and vertically
+
+How can you prevent a user from doing said action more than once on their device?
+Apple has introduced DeviceCheck in iOS 10. This API allows us to access per-device,
+Import device check
+DcDevice.current
+
+ Please explain Associatedtype?
+A. If we want to create a Generic Protocol we can use associatedtype
+
+What is unwind segue?
+A. An unwind segue is a type of segue used to implement backward navigation.
+
+//
+Fallthrough statements
+ Fallthrough keyword in swift?
+A. In Swift,switch statement completes its execution as soon as the first matching case is completed.
+In swift, the fallthrough statement is used in switch cases to execute a case statement which is next to the matched case statements based on our requirements.
+
+//
+SubScripts
+Subscripts which are shortcuts for accessing the member elements of a collection, list, you can use subscripts with class struct 
+
+//
+
+UIViewRepresentable is a wrapper for a UIKit’s UIView subclasses that we use to integrate any UIView subclass into our SwiftUI view hierarchy.
+Closed Range Operator (lowerBound…upperBound)?
+A. The closed range operator (a...b) defines a range that runs from a to b, and includes the values a and b. The value of a must not be greater than b.
+for value in 1...3 {
+	print(value)
+}
+Output:
+1
+2
+3
+
+Half Open Range Operator (lowerBound..<upperBound)?
+A. The half-open range operator (a..<b) defines a range that runs from a to b, but doesn’t include b.
+for value in 0..<3 {
+	print(value)
+}
+Output:
+0
+1
+2
+
+One-Sided Range Operator?
+A. One-sided range is those types of the range that continue as far as possible in one direction.
+
+let names = ["Anna", "Alex", "Brian", "Jack"]
+for name in names[2...] {
+    print(name)
+}
+// Brian
+// Jack
+for name in names[...2] {
+    print(name)
+}
+// Anna
+// Alex
+// Brian
+
+
+Difference between Object-Oriented and Protocol-Oriented Programming?
+A. OOP relies on inheritance and POP relies on protocols.
+
+Explain Asset Catalogs?
+A. We use asset catalogs to store images such as icons or images.
+
+App Store Connect API?
+A. App Store Connect API was announced in WWDC 2018. App Store Connect API is a standard RESTful API. API used JSON Web Tokens for authentication
+
+ UIBezierPath? A. UIBezierPath class, allows us to define custom paths that is used to 
+
+Generics
+Write code that works for multiple types and specify requirements for those types.
+
+
+. How Reference and Value types are stored in memory?
+A.
+Value Type: Get Stored on Stack Memory.
+Reference Type: Get Stored on Managed Heap Memory.
+
+
+How to read only a few properties of an entity ?
+This can be achieved by propertiesToFetch instance property of Core Data.
+
+Associated type
+protocol Song{
+    associatedtype Remix
+    var songName: Remix { get set }
+    mutating func play(remix: Remix)
+}
+
+
+extension Song{
+    mutating func play(remix: Remix){
+        songName = remix
+    }
+}
+
+
+struct Test: Song{
+    var songName: String?
+}
+
+
+var obj = Test()
+obj.play(remix: "Dabang")
+print(obj.songName ?? "")
+
+
+//
+Escaping closere is called after function return
+nonEscapping closure is called before function return
+//
+Where will you use escaping closure self is manadatory
+Where will you use nonEscaping closure self is optional.
+
+//
+Arc Automatic reference counting is automatically handle memory, it is work allocate and deallocate object from memory and strong reference will be handle automatic arc and weak and unowned reference will be handle by developer
+
+//
+Associated type is a type it is provide placeholder type in protocol
+After confirm protocol you set type 
+
+//
+Type allies it is provide new name of an existing type 
+//
+
+
+
+
+
+1> basic init and override init
+2>designated init Matlab apni sari propert initialize Karne ka baad super class ki sari property initialise Karna
+Convenience init means brother of init like hum convenient init me are property initialise nahi karenga
+
+
+Optional chaining 
+let string: String? = ""
+if let count = string?.count
+{
+    print(count)
+}
+
+Correct
+let string: String? =  nil
+if let count = string?.count
+{
+    print(count)
+}
+
+
+Try that is used catch error in swift
+Try? That is used convert error into nil 
+Try! That is used if you get error then your app will crash
+
+
+Nil coleason and ternary operator 
+Hum turnary condition operator  3 type me use karte hai
+question ? answer1 : answer2
+If a == b ? “currect” : “incorrect”
+And nil coleason hum waha use karte hai jaha hum optional ko unwrap karte hai
+
+
+Property in swift
+var storedPropert: String = "Testing Property"
+
+var computedProperty: Int {
+    let a = 78
+    let b = 89
+    let y = a + b
+    return y
+}
+
+print(storedPropert, computedProperty)
+
+
+Will set hum use karte hai new value get Karne ka liya
+class Person {
+    var name: String {
+        willSet(newValue) {
+            print("The name is about to be set to \(newValue)")
+        }
+    }
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+let person = Person(name: "John")
+person.name = "Stev job"
+
+Didset hum use karte hai jaha  property ki changing state get karni ho
+
+class Person {
+    
+    var age: Int {
+        didSet {
+            print("The age has been updated to \(age)")
+        }
+    }
+    
+    init(age: Int) {
+        self.age = age
+    }
+}
+
+let person = Person(age: 25)
+person.age = 30
+
+
+Explain Type Property
+
+Type property wo hoti hai jo direct class ya struct ka name se access kar sake hai
+Or jo value type hoti hai unhe static se declare karte hai or jo refrence type hoti hai wo class se declare karte hai
+
+
+struct MyStruct {
+    static var typeProperty: Int = 10
+}
+
+class MyClass {
+    class var typeProperty: String = "Hello"
+}
+
+print(MyStruct.typeProperty) // Output: 10
+MyStruct.typeProperty = 20
+print(MyStruct.typeProperty) // Output: 20
+
+print(MyClass.typeProperty) // Output: "Hello"
+MyClass.typeProperty = "World"
+print(MyClass.typeProperty) // Output: "World"
+
+//
+
+
+Paramater name wo tote hai jo function ka andar variable define karte hai,
+Or argument label wo hote hai jo paramater se palen diya jate hai 
+
+
+
+
+
+
+enum Weather {
+    case sunny
+    case rainy
+    case cloudy
+}
+
+let currentWeather = Weather.cloudy
+
+if case .sunny = currentWeather {
+    print("It's a sunny day!")
+} else if case .rainy = currentWeather {
+    print("It's a rainy day.")
+} else if case .cloudy = currentWeather {
+    print("It's a cloudy day.")
+}
+
+
+class Test {
+    func first(){
+        print("First Class")
+    }
+}
+
+
+class TestTwo {
+    let obj = Test()
+    
+    func second(){
+        print("Second Class")
+        obj.first()
+         
+    }
+}
+
+
+let obj = TestTwo()
+obj.second()
+
+
+Weak variable example
+class Person {
+    var name: String
+    weak var friend: Person?
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+var john: Person? = Person(name: "John")
+var jane: Person? = Person(name: "Jane")
+
+john?.friend = jane
+jane?.friend = john
+
+john = nil
+print(jane?.friend?.name) // Prints nil
+
+Var name
+
+Strong variable by default
+class Person {
+    var name: String
+    var pet: Pet?
+    
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Pet {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+var john: Person? = Person(name: "John")
+var dog: Pet? = Pet(name: "Buddy")
+
+john?.pet = dog
+dog = nil
+print(john?.pet?.name) // Prints "Buddy"
+
+
+// unowned variable
+class Person {
+    var name: String
+    unowned var job: Job
+    
+    init(name: String, job: Job) {
+        self.name = name
+        self.job = job
+    }
+}
+
+class Job {
+    var title: String
+    init(title: String) {
+        self.title = title
+    }
+}
+
+var engineer: Job? = Job(title: "Software Engineer")
+var john: Person? = Person(name: "John", job: engineer!)
+
+engineer = nil
+print(john?.job.title) // Results in a runtime error (crash)
+//
+
+
+//Delegates Design Patterns
+
+// Protocol defining the delegate methods
+protocol ShoppingCartDelegate: AnyObject {
+    func cartDidAddItem(itemName: String)
+    func cartDidRemoveItem(itemName: String)
+}
+
+// Class representing a shopping cart
+class ShoppingCart {
+    weak var delegate: ShoppingCartDelegate?
+    var items: [String] = []
+    
+    func addItem(itemName: String) {
+        items.append(itemName)
+        delegate?.cartDidAddItem(itemName: itemName)
+    }
+    
+    func removeItem(itemName: String) {
+        if let index = items.firstIndex(of: itemName) {
+            items.remove(at: index)
+            delegate?.cartDidRemoveItem(itemName: itemName)
+        }
+    }
+}
+
+// Class acting as the delegate for the ShoppingCart
+class CheckoutViewController: ShoppingCartDelegate {
+    let shoppingCart = ShoppingCart()
+    
+    init() {
+        shoppingCart.delegate = self
+    }
+    
+    func cartDidAddItem(itemName: String) {
+        print("Item '\(itemName)' added to the cart.")
+    }
+    
+    func cartDidRemoveItem(itemName: String) {
+        print("Item '\(itemName)' removed from the cart.")
+    }
+}
+
+// Usage
+let checkoutVC = CheckoutViewController()
+checkoutVC.shoppingCart.addItem(itemName: "Shirt") // Output: Item 'Shirt' added to the cart.
+checkoutVC.shoppingCart.addItem(itemName: "Shoes") // Output: Item 'Shoes' added to the cart.
+checkoutVC.shoppingCart.removeItem(itemName: "Shirt") // Output: Item 'Shirt' removed from the cart.
+
+
+//closure
+
+let normalClosure: ((String)-> ())?
+
+normalClosure = { str in
+    print(str)
+}
+
+normalClosure?("Hello")
+
+// Example 1: Closure as a variable
+let greetingClosure = {
+    print("Hello, World!")
+}
+
+greetingClosure() // Output: Hello, World!
+
+// Example 2: Closure with parameters
+let sumClosure = { (a: Int, b: Int) -> Int in
+    return a + b
+}
+
+let result = sumClosure(3, 4)
+print(result) // Output: 7
+
+// Example 3: Closure as a function parameter
+func performOperation(a: Int, b: Int, operation: (Int, Int) -> Int) {
+    let result = operation(a, b)
+    print("Result: \(result)")
+}
+
+performOperation(a: 5, b: 3, operation: { (a: Int, b: Int) -> Int in
+    return a * b
+})
+// Output: Result: 15
+
+// Example 4: Trailing closure syntax
+performOperation(a: 10, b: 2) { (a: Int, b: Int) -> Int in
+    return a / b
+}
+// Output: Result: 5
+
+
+//generics
+func swapValues<T: Numeric>(_ a: T, _ b: T) -> (T, T) {
+    var c = a
+    var d = b
+    var loc = c - d
+    var loc1 = c + d
+    return (loc, loc1)
+    
+}
+
+let (s1, s2) = swapValues(34.00, 45.00)
+
+print("str1: \(s1), str2: \(s2)")  // Output: str1: World, str2: Hello
+
+
+
+
+
+func executeRequest<T: Decodable>(data: Data) throws -> T  {
+    let decoder = JSONDecoder()
+    do {
+        let model = try decoder.decode(T.self, from: data)
+        return model
+    } catch {
+        throw error
+    }
+}
+
+struct Kheema: Codable {
+    let name: String
+    let age: Int
+    var son: SonRohan
+    
+}
+
+struct SonRohan: Codable{
+    let name: String
+    let age: Int
+}
+
+let objc = Kheema(name: "Maneesh", age: 20, son: SonRohan(name: "Rohan", age: 12))
+
+let encoder = JSONEncoder()
+let data = try encoder.encode(objc)
+print(data)
+
+
+do {
+    let personModel: Kheema = try executeRequest(data: data)
+    print(personModel)  // Output: John Doe
+
+} catch {
+    print("Error: \(error)")
+}
+
+
+//where to close in generic 
+
+func printDescription<T: CustomStringConvertible>(value: T) {
+    print(value.description)
+}
+
+printDescription(value: ["a", "b", "d"])  // Prints "42"
+
+
+
+func processArray<T>(array: [T]) where T: Equatable, T: CustomStringConvertible {
+    for element in array {
+        print(element.description)
+        if element == array.first {
+            print("First element!")
+        }
+    }
+}
+
+processArray(array: [1, 2, 3])  // Prints "1", "2", "3", "First element!"
+processArray(array: ["a", "b", "c"])  // Prints "a", "b", "c", "First element!"
+
+
+Dictionary
+
+// Creating an empty dictionary with String keys and Int values
+var myDictionary: [String: Int] = [:]
+
+// Adding key-value pairs to the dictionary
+myDictionary["Alice"] = 25
+myDictionary["Bob"] = 30
+myDictionary["Charlie"] = 35
+
+// Accessing values using keys
+let aliceAge = myDictionary["Alice"] // Optional(25)
+
+// Modifying a value
+myDictionary["Bob"] = 32
+
+// Removing a key-value pair
+myDictionary["Charlie"] = nil
+
+// Checking if a key exists in the dictionary
+let containsAlice = myDictionary.keys.contains("Alice") // true
+
+// Iterating over the dictionary
+for (name, age) in myDictionary {
+    print("\(name): \(age)")
+}
+
+
+//type alais
+typealias NumberWithRissu = Int
+var a: NumberWithRissu
+a = 4
+print(a)
+
+
+
+Create git in your project …
+Git init …. Create git
+Git git add . === added all file in your project
+Git add with path added path by file
+Git status === show your current commit status
+Git commit -m == commit your changes and save locally
+Git log == show all commits
+Git checkout -f === switch to commit in your project by using address commits
+Git branch ===  show all branch 
+Git branch  /branch name/ == create new branch 
+Git checkout -f /branch name/ == Git switch to branch one branch to another branch
+Git branch -M main === mail branch ka liya
+Git push origin main == main origin
+Personal access token— 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
+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
+
+Firstly create empty Project
+Install git 
+And 
+Git clone repo url
+After that all action perform same as
+
+
+
+
+
+
+
+
+
 
